@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout Page</title>
+</head>
+<body>
+<table style="width:100%" border="black">
+    <tr>
+        <th>Books Available</th>
+        <th>Books Selected</th>
+    </tr>
+    <tr style="vertical-align:top">
+        <td >
+            <table th:each="books :${shoppingCart.booksAvailable}" >
+                <form action="#" th:action="@{/checkout}"  method="post">
+                    <p >
+                        <a th:text="${books}"/>
+                        <input name="addBtn" type="submit" value="+"/>
+                        <input name="bookID" type="hidden" th:value="${books.id}" />
+                    </p>
+                </form>
+            </table>
+        </td>
+
+        <td>
+            <table th:each="books :${shoppingCart.booksSelected}" align="top">
+                <p >
+                    <a th:text="${books}"/>
+                </p>
+            </table>
+        </td>
+    </tr>
+
+</table>
+
+<form action="#" th:action="@{/checkout/transaction}" method="post">
+    <p><input type="submit" value="Complete Transaction" />
+    <p th:if="${buyTransaction!=null}"> Transaction Completed!</p>
+    <p th:if="${buyTransaction!=null}" th:text="${buyTransaction}"></p>
+</form>
+</body>
+</html>
