@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+</head>
+<body>
+    <h1>Book Details</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <td th:text="${book.id}"></td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td th:text="${book.title}"></td>
+        </tr>
+        <tr>
+            <th>ISBN</th>
+            <td th:text="${book.isbn}"></td>
+        </tr>
+        <tr>
+            <th>Fair Value</th>
+            <td th:text="${book.fairValue}"></td>
+        </tr>
+        <tr>
+            <th>Fair Points</th>
+            <td th:text="${book.fairPoints}"></td>
+        </tr>
+        <tr>
+            <th>Condition</th>
+            <td th:text="${book.condition}"></td>
+        </tr>
+        <tr>
+            <th>Owner</th>
+            <td th:text="${book.owner}"></td>
+        </tr>
+    </table>
+    <a th:href="@{/library/books}">Back to Book List</a>
+</body>
+</html>

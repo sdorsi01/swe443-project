@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell/Donate Book</title>
+</head>
+<body>
+    <h1>Sell/Donate Book</h1>
+    <form action="#" th:action="@{/sell-book}" method="post">
+        <input type="hidden" name="id" th:value="${book.id}" />
+        <table>
+            <tr>
+                <th>Title</th>
+                <td th:text="${book.title}"></td>
+            </tr>
+            <tr>
+                <th>ISBN</th>
+                <td th:text="${book.isbn}"></td>
+            </tr>
+            <tr>
+                <th>Condition</th>
+                <td th:text="${book.condition}"></td>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <td th:text="${book.owner}"></td>
+            </tr>
+        </table>
+        <button type="submit">Confirm Sell/Donate</button>
+    </form>
+</body>
+</html>
